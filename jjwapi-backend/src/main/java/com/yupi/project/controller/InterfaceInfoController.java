@@ -2,19 +2,20 @@ package com.yupi.project.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.gson.Gson;
+import com.jjwapi.jjwapiclientsdk.client.JjwApiClient;
 import com.yupi.project.annotation.AuthCheck;
-import com.yupi.project.common.BaseResponse;
-import com.yupi.project.common.DeleteRequest;
-import com.yupi.project.common.ErrorCode;
-import com.yupi.project.common.ResultUtils;
+import com.yupi.project.common.*;
 import com.yupi.project.constant.CommonConstant;
 import com.yupi.project.exception.BusinessException;
 
 import com.yupi.project.model.dto.interfaceinfo.InterfaceInfoAddRequest;
+import com.yupi.project.model.dto.interfaceinfo.InterfaceInfoInvokeRequest;
 import com.yupi.project.model.dto.interfaceinfo.InterfaceInfoQueryRequest;
 import com.yupi.project.model.dto.interfaceinfo.InterfaceInfoUpdateRequest;
 import com.yupi.project.model.entity.InterfaceInfo;
 import com.yupi.project.model.entity.User;
+import com.yupi.project.model.enums.InterfaceInfoStatusEnum;
 import com.yupi.project.service.InterfaceInfoService;
 import com.yupi.project.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * 帖子接口
+ * 接口管理
  *
  * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
  * @from <a href="https://yupi.icu">编程导航知识星球</a>
@@ -41,6 +42,9 @@ public class InterfaceInfoController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private JjwApiClient jjwApiClient;
 
     // region 增删改查
 
@@ -218,7 +222,121 @@ public class InterfaceInfoController {
 //        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVOPage(interfaceinfoPage, request));
 //    }
 //
-//    // endregion
+    // endregion
+    /**
+     * 发布（仅管理员）
+     *
+     * @param idRequest
+     * @return
+     * 校验该接口是否存在
+     * 判断该接口是否可以调用
+     * 修改接口数据库中的状态为1
+     */
+    @PostMapping("/online")
+    @AuthCheck(mustRole = "admin")
+    public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody IdRequest idRequest,
+                                                     HttpServletRequest request) {
+        //如果id为null或者id小于0
+        if(idRequest == null || idRequest.getId() <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        //校验该接口是否存在
+        Long id = idRequest.getId();
+        //根据Id查询接口信息数据
+        InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
+        if (interfaceInfo == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        //判断该接口是否可以调用
+        //模拟
+        com.jjwapi.jjwapiclientsdk.model.User user = new com.jjwapi.jjwapiclientsdk.model.User();
+        user.setUsername("zhangyu");
+        String username = jjwApiClient.getUserNameByPost(user);
+        if (StringUtils.isBlank(username)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口验证失败");
+        }
+        InterfaceInfo interfaceInfo1 = new InterfaceInfo();
+        interfaceInfo1.setId(id);
+        interfaceInfo1.setStatus(InterfaceInfoStatusEnum.ONLINE.getValue());
+        boolean result = interfaceInfoService.updateById(interfaceInfo1);
+        return ResultUtils.success(result);
+    }
+    /**
+     * 下线（仅管理员）
+     *
+     * @param idRequest
+     * @return
+     */
+    @PostMapping("/offline")
+    @AuthCheck(mustRole = "admin")
+    public BaseResponse<Boolean> offlineInterfaceInfo(@RequestBody IdRequest idRequest,
+                                                     HttpServletRequest request) {
+            //如果id为null或者id小于0
+            if(idRequest == null || idRequest.getId() <= 0) {
+                throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            }
+            //校验该接口是否存在
+            Long id = idRequest.getId();
+            //根据Id查询接口信息数据
+            InterfaceInfo interfaceInfo = interfaceInfoService.getById(id);
+            if (interfaceInfo == null) {
+                throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+            }
+            //判断该接口是否可以调用
+            //模拟
+            com.jjwapi.jjwapiclientsdk.model.User user = new com.jjwapi.jjwapiclientsdk.model.User();
+            user.setUsername("章鱼小丸子儿~");
+            String username = jjwApiClient.getUserNameByPost(user);
+            if (StringUtils.isBlank(username)) {
+                throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            }
+            InterfaceInfo interfaceInfo1 = new InterfaceInfo();
+            interfaceInfo1.setId(id);
+            interfaceInfo1.setStatus(InterfaceInfoStatusEnum.OFFLINE.getValue());
+            boolean result = interfaceInfoService.updateById(interfaceInfo1);
+            return ResultUtils.success(result);
+    }
+
+    /**
+     * 测试调用
+     *
+     * @param interfaceInfoInvokeRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/invoke")
+    @AuthCheck(mustRole = "admin")
+    public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
+                                                    HttpServletRequest request) {
+        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        long id = interfaceInfoInvokeRequest.getId();
+        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
+        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
+        if (oldInterfaceInfo == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
+        }
+        // 获取当前登录用户的ak和sk，这样相当于用户自己的这个身份去调用，
+        // 也不会担心它刷接口，因为知道是谁刷了这个接口，会比较安全
+        User loginUser = userService.getLoginUser(request);
+        String accessKey = loginUser.getAccessKey();
+        String secretKey = loginUser.getSecretKey();
+        JjwApiClient jjwApiClient = new JjwApiClient(accessKey, secretKey);
+        // 我们只需要进行测试调用，所以我们需要解析传递过来的参数。
+        Gson gson = new Gson();
+        com.jjwapi.jjwapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.jjwapi.jjwapiclientsdk.model.User.class);
+        // 调用JjwApiClient的getUsernameByPost方法，传入用户对象，获取用户名
+        String usernameByPost = jjwApiClient.getUserNameByPost(user);
+        // 返回成功响应，并包含调用结果
+        return ResultUtils.success(usernameByPost);
+    }
+
+
+
 //
 //    /**
 //     * 分页搜索（从 ES 查询，封装类）
