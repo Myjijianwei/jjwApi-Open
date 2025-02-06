@@ -12,8 +12,8 @@
     <groupId>com.jjw</groupId>
     <artifactId>jjwapi-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-init</name>
-    <description>springboot 初始项目</description>
+    <name>jjwapi-backend</name>
+    <description>api开放接口后端</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -2,18 +2,15 @@ package com.yupi.project.model.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
-
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 用户
- *
  * @TableName user
  */
-@TableName(value = "user")
+@TableName(value ="user")
 @Data
-public class User implements Serializable {
+public class User {
     /**
      * id
      */
@@ -41,7 +38,7 @@ public class User implements Serializable {
     private Integer gender;
 
     /**
-     * 用户角色: user, admin
+     * 用户角色：user / admin
      */
     private String userRole;
 
@@ -49,6 +46,16 @@ public class User implements Serializable {
      * 密码
      */
     private String userPassword;
+
+    /**
+     * accessKey
+     */
+    private String accessKey;
+
+    /**
+     * secretKey
+     */
+    private String secretKey;
 
     /**
      * 创建时间
@@ -63,9 +70,5 @@ public class User implements Serializable {
     /**
      * 是否删除
      */
-    @TableLogic
     private Integer isDelete;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }
