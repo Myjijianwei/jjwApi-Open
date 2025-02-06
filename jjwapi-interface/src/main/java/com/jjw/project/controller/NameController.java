@@ -1,8 +1,7 @@
 package com.jjw.project.controller;
 
-
-import com.jjw.project.model.User;
-import com.jjw.project.utils.SignUtils;
+import com.jjwapi.jjwapiclientsdk.model.User;
+import com.jjwapi.jjwapiclientsdk.utils.SignUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;

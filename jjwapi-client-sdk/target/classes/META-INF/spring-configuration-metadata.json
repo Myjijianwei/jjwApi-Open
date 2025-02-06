@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "jjwapi.client",
+      "type": "com.jjwapi.jjwapiclientsdk.JjwapiClientConfig",
+      "sourceType": "com.jjwapi.jjwapiclientsdk.JjwapiClientConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jjwapi.client.access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.jjwapi.jjwapiclientsdk.JjwapiClientConfig"
+    },
+    {
+      "name": "jjwapi.client.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.jjwapi.jjwapiclientsdk.JjwapiClientConfig"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,5 @@
+META-INF/spring-configuration-metadata.json
+com/jjwapi/jjwapiclientsdk/model/User.class
+com/jjwapi/jjwapiclientsdk/client/JjwApiClient.class
+com/jjwapi/jjwapiclientsdk/utils/SignUtils.class
+com/jjwapi/jjwapiclientsdk/JjwapiClientConfig.class

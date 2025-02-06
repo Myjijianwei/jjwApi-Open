@@ -1,19 +1,13 @@
-package com.jjw.project.client;
+package com.jjwapi.jjwapiclientsdk.client;
 
-import cn.hutool.core.lang.UUID;
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.crypto.digest.DigestAlgorithm;
-import cn.hutool.crypto.digest.Digester;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import com.jjw.project.model.User;
-import com.jjw.project.utils.SignUtils;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.jjwapi.jjwapiclientsdk.model.User;
+import com.jjwapi.jjwapiclientsdk.utils.SignUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -21,16 +15,16 @@ import java.util.Random;
 /**
  * 调用第三方接口的客户端
  */
-public class jjwApiClient {
-//    private String accessKey;
-//    private String secretKey;
-private static final String accessKey = UUID.randomUUID().toString();
-    private static final String secretKey = UUID.randomUUID().toString();
+public class JjwApiClient {
+    private String accessKey;
+    private String secretKey;
+//    private static final String accessKey = UUID.randomUUID().toString();
+//    private static final String secretKey = UUID.randomUUID().toString();
 
-//    public jjwApiClient(String accessKey, String secretKey) {
-//        this.accessKey = accessKey;
-//        this.secretKey = secretKey;
-//    }
+    public JjwApiClient(String accessKey, String secretKey) {
+        this.accessKey = accessKey;
+        this.secretKey = secretKey;
+    }
 
     // 使用GET方法从服务器获取名称信息
     public String getNameByGet(String name) {
@@ -56,8 +50,6 @@ private static final String accessKey = UUID.randomUUID().toString();
         System.out.println(result);
         return result;
     }
-
-
 
 
     private Map<String, String> getHeaderMap(String body) {
@@ -89,7 +81,6 @@ private static final String accessKey = UUID.randomUUID().toString();
         // 返回服务器返回的结果
         return result;
     }
-
 
 
     // 使用POST方法向服务器发送User对象，并获取服务器返回的结果

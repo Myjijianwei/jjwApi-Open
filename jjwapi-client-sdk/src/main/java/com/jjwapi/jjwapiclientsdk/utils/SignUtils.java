@@ -1,4 +1,4 @@
-package com.jjw.project.utils;
+package com.jjwapi.jjwapiclientsdk.utils;
 
 import cn.hutool.crypto.digest.DigestAlgorithm;
 import cn.hutool.crypto.digest.Digester;
