@@ -1,0 +1,8 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+jjwapi:
+  client:
+    access-key: jjw
+    secret-key: abcdefg

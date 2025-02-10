@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4045d3e6-e0a7-4bc0-9c58-4418282258b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ant-design-pro" beforeDir="false" afterPath="$PROJECT_DIR$/../ant-design-pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/MyApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/annotation/AuthCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/AuthInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/LogInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/invokeCountAOP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/BaseResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/DeleteRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/ErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/IdRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/PageRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/ResultUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/Knife4jConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/MyBatisPlusConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/constant/CommonConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/constant/UserConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/PostController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/UserInterfaceInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/exception/BusinessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/InterfaceInfoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/PostMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoAddRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoInvokeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoQueryRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostAddRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostDoThumbRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostQueryRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserAddRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserLoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserQueryRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/InterfaceInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/UserInterfaceInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/InterfaceInfoStatusEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/PostGenderEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/PostReviewStatusEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/vo/PostVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/vo/UserVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/InterfaceInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/PostService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/PostServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/InterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/InterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/CustomGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/JjwapiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/JjwapiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/JjwapiGatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/JjwapiGatewayApplication.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2squXf8vdOcAV09U6xaKWpH3oxD" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.jjwapi-common [clean].executor": "Run",
+    "Maven.jjwapi-common [install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jjw/MyAPIOpen/jjwapi-common/src/main/java/com/jjw/jjwapicommon/service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/jjw/jjwapicommon/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/jjw/jjwapicommon" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jjw.jjwapicommon.service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JjwapiCommonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="jjwapi-common" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jjw.jjwapicommon.JjwapiCommonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="lua.app" factoryName="Lua Application">
+      <option name="program" value="lua" />
+      <option name="file" value="" />
+      <option name="workingDir" value="$PROJECT_DIR$/src/main/java" />
+      <option name="debuggerType" value="2" />
+      <option name="params" value="" />
+      <option name="charset" value="UTF-8" />
+      <option name="showConsole" value="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4045d3e6-e0a7-4bc0-9c58-4418282258b6" name="Changes" comment="" />
+      <created>1739195468781</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739195468781</updated>
+      <workItem from="1739195470148" duration="2343000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

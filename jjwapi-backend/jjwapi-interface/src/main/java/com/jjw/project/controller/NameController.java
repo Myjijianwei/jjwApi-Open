@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * 名称 API
  *
- * @author yupi
+ * @author jjw
  */
 @RestController
 @RequestMapping("/name")

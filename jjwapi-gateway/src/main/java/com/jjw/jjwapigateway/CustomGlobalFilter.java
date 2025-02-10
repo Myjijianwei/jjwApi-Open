@@ -63,7 +63,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         String signature = headers.getFirst("signature");
         // 获取请求体内容
         String body = headers.getFirst("body");
-        // 实际情况应该是去数据库中查是否已分配给用户
+        // todo 实际情况应该是去数据库中查是否已分配给用户
         if (!accessKey.equals("jjw")) {
             return handleNoAuth(response);
         }
@@ -144,6 +144,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
                             //返回一个处理后的响应体
                             return super.writeWith(fluxBody.map(dataBuffer -> {
                                 //读取响应体的内容并且转换成为字节数组
+                                //todo 调用成功，接口调用次数+1 invokeCount
                                 byte[] content = new byte[dataBuffer.readableByteCount()];
                                 dataBuffer.read(content);
                                 DataBufferUtils.release(dataBuffer);//释放掉内存

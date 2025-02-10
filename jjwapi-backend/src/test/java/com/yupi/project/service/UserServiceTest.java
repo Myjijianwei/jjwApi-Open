@@ -1,6 +1,6 @@
-package com.yupi.project.service;
+package com.jjw.project.service;
 
-import com.yupi.project.model.entity.User;
+import com.jjw.project.model.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * 用户服务测试
  *
- * @author yupi
+ * @author jjw
  */
 @SpringBootTest
 class UserServiceTest {
@@ -47,7 +47,7 @@ class UserServiceTest {
 
     @Test
     void userRegister() {
-        String userAccount = "yupi";
+        String userAccount = "jjw";
         String userPassword = "";
         String checkPassword = "123456";
         try {
@@ -56,7 +56,7 @@ class UserServiceTest {
             userAccount = "yu";
             result = userService.userRegister(userAccount, userPassword, checkPassword);
             Assertions.assertEquals(-1, result);
-            userAccount = "yupi";
+            userAccount = "jjw";
             userPassword = "123456";
             result = userService.userRegister(userAccount, userPassword, checkPassword);
             Assertions.assertEquals(-1, result);
@@ -67,11 +67,11 @@ class UserServiceTest {
             checkPassword = "123456789";
             result = userService.userRegister(userAccount, userPassword, checkPassword);
             Assertions.assertEquals(-1, result);
-            userAccount = "dogYupi";
+            userAccount = "dogjjw";
             checkPassword = "12345678";
             result = userService.userRegister(userAccount, userPassword, checkPassword);
             Assertions.assertEquals(-1, result);
-            userAccount = "yupi";
+            userAccount = "jjw";
             result = userService.userRegister(userAccount, userPassword, checkPassword);
             Assertions.assertEquals(-1, result);
         } catch (Exception e) {
