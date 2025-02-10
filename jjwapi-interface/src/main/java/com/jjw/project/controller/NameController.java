@@ -3,6 +3,7 @@ package com.jjw.project.controller;
 import com.jjwapi.jjwapiclientsdk.model.User;
 import com.jjwapi.jjwapiclientsdk.utils.SignUtils;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -17,7 +18,6 @@ import java.time.temporal.ChronoUnit;
 public class NameController {
     @GetMapping("/")
     public String getNameByGet(String name) {
-
         return "GET 你的名字是" + name;
     }
 
@@ -36,7 +36,7 @@ public class NameController {
         String body = request.getHeader("body");
         // todo 实际情况应该是去数据库中查是否已分配给用户
         if (!accessKey.equals("jjw")) {
-            System.out.println("============================"+accessKey);
+            System.out.println("============================" + accessKey);
             throw new RuntimeException("无权限");
         }
         if (Long.parseLong(nonce) > 10000) {
@@ -62,7 +62,8 @@ public class NameController {
         // 假设这里有一个 invokeCountService 来处理调用次数的增加
         // invokeCountService.increaseInvokeCount(accessKey);
 
-        return "POST 用户名字是" + user.getUsername();
+        String result = "POST 用户名字是" + user.getUsername();
+        return result;
     }
 }
 

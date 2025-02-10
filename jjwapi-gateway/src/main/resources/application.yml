@@ -1,0 +1,31 @@
+server:
+  port: 8090
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=source, jjw
+      routes:
+        - id: add_request_header_route
+          uri: http://localhost:8123
+          predicates:
+            - Path=/api/**
+#          filters:
+#            - AddResponseHeader=jjw, swag
+#            - AddResponseParameter=name, dog
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward://fallback
+#        - id: jjw-fallback
+#          uri: https://yupi.icu
+#          predicates:
+#            - Path=/fallback
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace

@@ -16,6 +16,7 @@ import java.util.Random;
  * 调用第三方接口的客户端
  */
 public class JjwApiClient {
+    private static final String GATEWAY_URL = "http://localhost:8090";
     private String accessKey;
     private String secretKey;
 //    private static final String accessKey = UUID.randomUUID().toString();
@@ -33,12 +34,14 @@ public class JjwApiClient {
         // 将"name"参数添加到映射中
         paramMap.put("name", name);
         // 使用HttpUtil工具发起GET请求，并获取服务器返回的结果
-        String result = HttpUtil.get("http://localhost:8123/api/name/", paramMap);
+        String result = HttpUtil.get(GATEWAY_URL+"/api/name/", paramMap);
         // 打印服务器返回的结果
         System.out.println(result);
         // 返回服务器返回的结果
         return result;
     }
+
+
 
     // 使用POST方法从服务器获取名称信息
     public String getNameByPost(@RequestParam String name) {
@@ -46,7 +49,7 @@ public class JjwApiClient {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", name);
         // 使用HttpUtil工具发起POST请求，并获取服务器返回的结果
-        String result = HttpUtil.post("http://localhost:8123/api/name/", paramMap);
+        String result = HttpUtil.post(GATEWAY_URL+"/api/name/", paramMap);
         System.out.println(result);
         return result;
     }
@@ -68,7 +71,7 @@ public class JjwApiClient {
         // 将 User 对象转换为 JSON 字符串
         String json = JSONUtil.toJsonStr(user);
         // 使用 HttpRequest 工具发起 POST 请求，并获取服务器的响应
-        HttpResponse httpResponse = HttpRequest.post("http://localhost:8123/api/name/user/")
+        HttpResponse httpResponse = HttpRequest.post(GATEWAY_URL+"/api/name/user/")
                 .addHeaders(getHeaderMap(json))
                 .body(json) // 将 JSON 字符串设置为请求体
                 .execute(); // 执行请求
