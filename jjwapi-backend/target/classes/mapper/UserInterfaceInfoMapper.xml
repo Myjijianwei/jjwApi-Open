@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jjw.project.mapper.UserInterfaceInfoMapper">
 
-    <resultMap id="BaseResultMap" type="com.jjw.project.model.entity.UserInterfaceInfo">
+    <resultMap id="BaseResultMap" type="com.jjw.jjwapicommon.model.entity.UserInterfaceInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="userId" column="userId" jdbcType="BIGINT"/>
             <result property="interfaceInfoId" column="interfaceInfoId" jdbcType="BIGINT"/>
@@ -21,4 +21,12 @@
         totalNum,leftNum,status,
         createTime,updateTime,isDelete
     </sql>
+    <select id="listTopInvokeInterfaceInfo" resultType="com.jjw.jjwapicommon.model.entity.UserInterfaceInfo">
+        -- 获取接口调用次数的统计信息，并按照调用总次数降序排列，最后取前三个接口作为结果
+        select interfaceInfoId, sum(totalNum) as totalNum
+        from user_interface_info
+        group by interfaceInfoId
+        order by totalNum desc
+            limit #{limit};
+    </select>
 </mapper>

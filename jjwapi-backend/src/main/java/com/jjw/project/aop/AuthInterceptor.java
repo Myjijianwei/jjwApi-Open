@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.jjw.project.annotation.AuthCheck;
 import com.jjw.project.common.ErrorCode;
 import com.jjw.project.exception.BusinessException;
-import com.jjw.project.model.entity.User;
+import com.jjw.jjwapicommon.model.entity.User;
 
 import com.jjw.project.service.UserService;
 import org.apache.commons.lang3.StringUtils;

@@ -10,26 +10,19 @@ import com.jjw.project.common.ResultUtils;
 import com.jjw.project.constant.CommonConstant;
 import com.jjw.project.exception.BusinessException;
 import com.jjw.project.model.dto.post.PostAddRequest;
-import com.jjw.project.model.dto.post.PostDoThumbRequest;
 import com.jjw.project.model.dto.post.PostQueryRequest;
 import com.jjw.project.model.dto.post.PostUpdateRequest;
 import com.jjw.project.model.entity.Post;
-import com.jjw.project.model.entity.User;
-import com.jjw.project.model.vo.PostVO;
+import com.jjw.jjwapicommon.model.entity.User;
 import com.jjw.project.service.PostService;
 import com.jjw.project.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.*;
-import java.util.stream.Collectors;
 
 /**
  * 帖子接口

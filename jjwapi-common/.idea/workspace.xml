@@ -5,90 +5,114 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4045d3e6-e0a7-4bc0-9c58-4418282258b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/InnerInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/InnerUserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/InnerUserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ant-design-pro" beforeDir="false" afterPath="$PROJECT_DIR$/../ant-design-pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/MyApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/annotation/AuthCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/AuthInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/LogInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/aop/invokeCountAOP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/BaseResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/DeleteRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/ErrorCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/IdRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/PageRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/common/ResultUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/Knife4jConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/config/MyBatisPlusConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/constant/CommonConstant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/constant/UserConstant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/InterfaceInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/PostController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/controller/UserInterfaceInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/exception/BusinessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/InterfaceInfoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/PostMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoAddRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoInvokeRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoQueryRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/interfaceinfo/InterfaceInfoUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostAddRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostDoThumbRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostQueryRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/post/PostUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserAddRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserLoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserQueryRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserRegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/user/UserUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/InterfaceInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/entity/UserInterfaceInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/InterfaceInfoStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/PostGenderEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/enums/PostReviewStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/vo/PostVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/model/vo/UserVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/InterfaceInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/PostService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/UserInterfaceInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/PostServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/yupi/project/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/aop/AuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/aop/AuthInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/InterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/InterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/UserInterfaceInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/controller/UserInterfaceInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/InterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/InterfaceInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/UserInterfaceInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/UserInterfaceInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/model/entity/InterfaceInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/model/entity/UserInterfaceInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/InterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/InterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/UserInterfaceInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/UserInterfaceInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/InterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/InterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/UserInterfaceInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/UserInterfaceInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/java/com/jjw/project/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/InterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/InterfaceInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/PostMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserInterfaceInfoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/jjw/project/service/UserInterfaceInfoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/yupi/project/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/src/test/java/com/jjw/project/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/MyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/MyApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/annotation/AuthCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/annotation/AuthCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/AuthInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/AuthInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/LogInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/LogInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/invokeCountAOP.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/aop/invokeCountAOP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/BaseResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/BaseResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/DeleteRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/DeleteRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/ErrorCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/ErrorCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/IdRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/IdRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/PageRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/PageRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/ResultUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/common/ResultUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/Knife4jConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/Knife4jConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/MyBatisPlusConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/config/MyBatisPlusConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/constant/CommonConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/constant/CommonConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/constant/UserConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/constant/UserConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/InterfaceInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/InterfaceInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/UserInterfaceInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/controller/UserInterfaceInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/exception/BusinessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/exception/BusinessException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/InterfaceInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/InterfaceInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/PostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/UserInterfaceInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/UserInterfaceInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoAddRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoAddRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoInvokeRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoInvokeRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoQueryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoQueryRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/interfaceinfo/InterfaceInfoUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostAddRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostAddRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostDoThumbRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostDoThumbRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostQueryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostQueryRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/post/PostUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserAddRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserAddRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserLoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserLoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserQueryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserQueryRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserRegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserRegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/user/UserUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoAddRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoQueryRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/dto/userinterfaceinfo/UserInterfaceInfoUpdateRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/entity/InterfaceInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/entity/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/entity/UserInterfaceInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/InterfaceInfoStatusEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/InterfaceInfoStatusEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/PostGenderEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/PostGenderEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/PostReviewStatusEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/enums/PostReviewStatusEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/vo/PostVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/vo/PostVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/vo/UserVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/model/vo/UserVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/provider/DemoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/provider/DemoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/provider/DemoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/provider/DemoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/InterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/InterfaceInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/UserInterfaceInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/UserInterfaceInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/InterfaceInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/InterfaceInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/PostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/UserInterfaceInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/UserInterfaceInfoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/com/jjw/project/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/InterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/InterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/UserInterfaceInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/UserInterfaceInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-backend/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/test-classes/com/yupi/project/service/UserInterfaceInfoServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-backend/target/test-classes/com/yupi/project/service/UserServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jjw/jjwapicommon/JjwapiCommonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jjw/jjwapicommon/JjwapiCommonApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jjw/jjwapicommon/JjwapiCommonApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jjw/jjwapicommon/JjwapiCommonApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jjwapi-common-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/jjwapi-common-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jjwapi-common-0.0.1.jar.original" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/CustomGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/CustomGlobalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/JjwapiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/java/com/jjw/jjwapigateway/JjwapiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/CustomGlobalFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/JjwapiGatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-gateway/target/classes/com/jjw/jjwapigateway/JjwapiGatewayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-interface/src/main/java/com/jjw/project/controller/NameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jjwapi-interface/target/classes/com/jjw/project/controller/NameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jjwapi-interface/target/classes/com/jjw/project/controller/NameController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,10 +125,10 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2squXf8vdOcAV09U6xaKWpH3oxD" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -113,26 +137,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.jjwapi-common [clean].executor": "Run",
-    "Maven.jjwapi-common [install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/jjw/MyAPIOpen/jjwapi-common/src/main/java/com/jjw/jjwapicommon/service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.jjwapi-common [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.jjwapi-common [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.JjwapiCommonApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jjw/MyAPIOpen/jjwapi-common/src/main/java/com/jjw/jjwapicommon/service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/jjw/jjwapicommon/service" />
@@ -150,16 +179,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="lua.app" factoryName="Lua Application">
-      <option name="program" value="lua" />
-      <option name="file" value="" />
-      <option name="workingDir" value="$PROJECT_DIR$/src/main/java" />
-      <option name="debuggerType" value="2" />
-      <option name="params" value="" />
-      <option name="charset" value="UTF-8" />
-      <option name="showConsole" value="true" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -169,7 +188,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1739195468781</updated>
-      <workItem from="1739195470148" duration="2343000" />
+      <workItem from="1739195470148" duration="2551000" />
+      <workItem from="1739497030827" duration="2457000" />
+      <workItem from="1740360706540" duration="496000" />
+      <workItem from="1740375404247" duration="703000" />
+      <workItem from="1740379124499" duration="599000" />
     </task>
     <servers />
   </component>

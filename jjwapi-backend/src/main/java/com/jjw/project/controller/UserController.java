@@ -8,15 +8,13 @@ import com.jjw.project.common.DeleteRequest;
 import com.jjw.project.common.ErrorCode;
 import com.jjw.project.common.ResultUtils;
 import com.jjw.project.exception.BusinessException;
-import com.jjw.project.model.dto.*;
 import com.jjw.project.model.dto.user.*;
-import com.jjw.project.model.entity.User;
+import com.jjw.jjwapicommon.model.entity.User;
 import com.jjw.project.model.vo.UserVO;
 import com.jjw.project.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.jjw.project.mapper;
 
 
-import com.jjw.project.model.entity.User;
+import com.jjw.jjwapicommon.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

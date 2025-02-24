@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jjw.project.common.ErrorCode;
 import com.jjw.project.exception.BusinessException;
 import com.jjw.project.mapper.UserInterfaceInfoMapper;
-import com.jjw.project.model.entity.UserInterfaceInfo;
+import com.jjw.jjwapicommon.model.entity.UserInterfaceInfo;
 import com.jjw.project.service.UserInterfaceInfoService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

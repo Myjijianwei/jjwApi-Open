@@ -1,6 +1,6 @@
 package com.jjw.project.service;
 
-import com.jjw.project.model.entity.User;
+import com.jjw.jjwapicommon.model.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

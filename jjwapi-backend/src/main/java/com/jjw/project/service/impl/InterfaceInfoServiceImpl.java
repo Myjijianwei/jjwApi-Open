@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jjw.project.common.ErrorCode;
 import com.jjw.project.exception.BusinessException;
 import com.jjw.project.mapper.InterfaceInfoMapper;
-import com.jjw.project.model.entity.InterfaceInfo;
+import com.jjw.jjwapicommon.model.entity.InterfaceInfo;
 import com.jjw.project.service.InterfaceInfoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
