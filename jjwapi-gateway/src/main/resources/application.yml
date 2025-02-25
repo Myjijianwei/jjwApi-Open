@@ -12,17 +12,7 @@ spring:
           uri: http://localhost:8123
           predicates:
             - Path=/api/**
-#          filters:
-#            - AddResponseHeader=jjw, swag
-#            - AddResponseParameter=name, dog
-#            - name: CircuitBreaker
-#              args:
-#                name: myCircuitBreaker
-#                fallbackUri: forward://fallback
-#        - id: jjw-fallback
-#          uri: https://yupi.icu
-#          predicates:
-#            - Path=/fallback
+
 logging:
   level:
     org:

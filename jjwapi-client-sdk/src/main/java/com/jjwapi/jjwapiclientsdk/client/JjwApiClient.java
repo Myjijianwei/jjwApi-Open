@@ -19,41 +19,32 @@ public class JjwApiClient {
     private static final String GATEWAY_URL = "http://localhost:8090";
     private String accessKey;
     private String secretKey;
-//    private static final String accessKey = UUID.randomUUID().toString();
-//    private static final String secretKey = UUID.randomUUID().toString();
 
     public JjwApiClient(String accessKey, String secretKey) {
         this.accessKey = accessKey;
         this.secretKey = secretKey;
     }
 
-    // 使用GET方法从服务器获取名称信息
-    public String getNameByGet(String name) {
-        // 可以单独传入http参数，这样参数会自动做URL编码，拼接在URL中
-        HashMap<String, Object> paramMap = new HashMap<>();
-        // 将"name"参数添加到映射中
-        paramMap.put("name", name);
-        // 使用HttpUtil工具发起GET请求，并获取服务器返回的结果
-        String result = HttpUtil.get(GATEWAY_URL+"/api/name/", paramMap);
-        // 打印服务器返回的结果
-        System.out.println(result);
-        // 返回服务器返回的结果
-        return result;
+    // 通用的请求方法，处理请求头
+    private HttpResponse sendRequest(String method, String url, String body) {
+        Map<String, String> headers = getHeaderMap(body);
+        HttpRequest request;
+        switch (method.toUpperCase()) {
+            case "GET":
+                request = HttpRequest.get(url);
+                break;
+            case "POST":
+                request = HttpRequest.post(url);
+                break;
+            default:
+                throw new IllegalArgumentException("不支持的请求方法: " + method);
+        }
+        request.addHeaders(headers);
+        if (body != null && !body.isEmpty()) {
+            request.body(body);
+        }
+        return request.execute();
     }
-
-
-
-    // 使用POST方法从服务器获取名称信息
-    public String getNameByPost(@RequestParam String name) {
-        // 可以单独传入http参数，这样参数会自动做URL编码，拼接在URL中
-        HashMap<String, Object> paramMap = new HashMap<>();
-        paramMap.put("name", name);
-        // 使用HttpUtil工具发起POST请求，并获取服务器返回的结果
-        String result = HttpUtil.post(GATEWAY_URL+"/api/name/", paramMap);
-        System.out.println(result);
-        return result;
-    }
-
 
     private Map<String, String> getHeaderMap(String body) {
         Map<String, String> map = new HashMap<>();
@@ -65,43 +56,59 @@ public class JjwApiClient {
         return map;
     }
 
+    // 使用GET方法从服务器获取名称信息
+    public String getNameByGet() {
+        try {
+            String url = GATEWAY_URL + "/api/name/";
+            HttpResponse response = sendRequest("GET", url, null);
+            String result = response.body();
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            System.err.println("发起GET请求时出现异常: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // 使用POST方法从服务器获取名称信息
+    public String getNameByPost(@RequestParam String name) {
+        try {
+            String url = GATEWAY_URL + "/api/name/";
+            HashMap<String, Object> paramMap = new HashMap<>();
+            paramMap.put("name", name);
+            String body = HttpUtil.toParams(paramMap);
+            HttpResponse response = sendRequest("POST", url, body);
+            String result = response.body();
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            System.err.println("发起POST请求时出现异常: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     // 使用 POST 方法向服务器发送 User 对象，并获取服务器返回的结果
     public String getUserNameByPost(User user) {
-        // 将 User 对象转换为 JSON 字符串
-        String json = JSONUtil.toJsonStr(user);
-        // 使用 HttpRequest 工具发起 POST 请求，并获取服务器的响应
-        HttpResponse httpResponse = HttpRequest.post(GATEWAY_URL+"/api/name/user/")
-                .addHeaders(getHeaderMap(json))
-                .body(json) // 将 JSON 字符串设置为请求体
-                .execute(); // 执行请求
-        // 打印服务器返回的状态码
-        System.out.println(httpResponse.getStatus());
-        // 获取服务器返回的结果
-        String result = httpResponse.body();
-        // 打印服务器返回的结果
-        System.out.println(result);
-        // 返回服务器返回的结果
-        return result;
+        try {
+            // 将 User 对象转换为 JSON 字符串
+            String json = JSONUtil.toJsonStr(user);
+            System.out.println("请求体 JSON: " + json);
+
+            String url = GATEWAY_URL + "/api/name/user/";
+            HttpResponse response = sendRequest("POST", url, json);
+
+            // 打印响应状态码和响应体
+            System.out.println("响应状态码: " + response.getStatus());
+            String result = response.body();
+            System.out.println("响应体: " + result);
+
+            // 返回响应体
+            return result;
+        } catch (Exception e) {
+            System.err.println("请求失败: " + e.getMessage());
+            return null;
+        }
     }
-
-
-    // 使用POST方法向服务器发送User对象，并获取服务器返回的结果
-//    public String getUserNameByPost(@RequestBody User user) {
-//        // 将User对象转换为JSON字符串
-//        String json = JSONUtil.toJsonStr(user);
-//        // 使用HttpRequest工具发起POST请求，并获取服务器的响应
-//        HttpResponse httpResponse = HttpRequest.post("http://localhost:8123/api/name/user/")
-//                .addHeaders(getHeaderMap(json))
-//                .body(json) // 将JSON字符串设置为请求体
-//                .execute(); // 执行请求
-//        // 打印服务器返回的状态码
-//        System.out.println(httpResponse.getStatus());
-//        // 获取服务器返回的结果
-//        String result = httpResponse.body();
-//        // 打印服务器返回的结果
-//        System.out.println(result);
-//        // 返回服务器返回的结果
-//        return result;
-//    }
 }

@@ -1,7 +1,7 @@
 package com.jjwapi.jjwapiclientsdk.utils;
 
-import cn.hutool.crypto.digest.DigestAlgorithm;
-import cn.hutool.crypto.digest.Digester;
+
+import org.springframework.util.DigestUtils;
 
 /**
  * 签名认证
@@ -9,15 +9,21 @@ import cn.hutool.crypto.digest.Digester;
 public class SignUtils {
 
 
+    private static final String SALT = "jjw";
+
     /**
-     * 生成签名
+     *
      * @param body
      * @param secretKey
      * @return
      */
     public static String genSign(String body, String secretKey) {
-        Digester md5=new Digester(DigestAlgorithm.MD5);
-        String content=body+"."+secretKey;
-        return md5.digestHex(content);
+        if (body == null) {
+            body = "";
+        }
+        // 拼接盐值、请求体和 secretKey
+        String content = SALT + body + secretKey;
+        // 使用 DigestUtils.md5DigestAsHex 方法进行 MD5 加密
+        return DigestUtils.md5DigestAsHex(content.getBytes());
     }
 }

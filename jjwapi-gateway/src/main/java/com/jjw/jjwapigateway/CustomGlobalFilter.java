@@ -55,45 +55,55 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 1. 用户发送请求到API网关
         // 2. 请求日志
         ServerHttpRequest request = exchange.getRequest();
+        log.info("原始请求路径：" + request.getPath().value());
         String path = INTERFACE_HOST + request.getPath().value();
+        log.info("拼接后的请求路径：" + path);
         String method = request.getMethod().toString();
         log.info("******请求唯一标识：" + request.getId());
         log.info("******请求路径：" + path);
         log.info("******请求方法：" + method);
         log.info("******请求参数：" + request.getQueryParams());
-        String sourceAddress = request.getLocalAddress().getHostString();
+        String sourceAddress = request.getLocalAddress() != null ? request.getLocalAddress().getHostString() : null;
         log.info("******请求来源ip地址：" + sourceAddress);
         log.info("******请求来源地址：" + request.getRemoteAddress());
+
         // 3. (黑白名单)
         ServerHttpResponse response = exchange.getResponse();
-        if (!IP_WHITE_LIST.contains(sourceAddress)) {
-            //设置响应状态码403，禁止访问
+        if (sourceAddress == null || !IP_WHITE_LIST.contains(sourceAddress)) {
+            // 设置响应状态码403，禁止访问
             response.setStatusCode(HttpStatus.FORBIDDEN);
-            //返回处理完成的响应
+            // 返回处理完成的响应
             return response.setComplete();
         }
+
         // 4. 用户鉴权(判断 ak、sk 是否合法)
         HttpHeaders headers = request.getHeaders();
         String accessKey = headers.getFirst("accessKey");
+        log.info("获取到的 accessKey: " + accessKey);
+        if (accessKey == null) {
+            log.error("accessKey 为空，拒绝请求");
+            return handleNoAuth(response);
+        }
         String nonce = headers.getFirst("nonce");
         String timestamp = headers.getFirst("timestamp");
         String signature = headers.getFirst("signature");
         // 获取请求体内容
         String body = headers.getFirst("body");
-        // todo 实际情况应该是去数据库中查是否已分配给用户
         User invokeUser = null;
         try {
             invokeUser = innerUserService.getInvokeUser(accessKey);
         } catch (Exception e) {
-            log.error("getInvokeUser error" + e.getMessage());
+            log.error("getInvokeUser error", e);
+            return handleNoAuth(response);
         }
         if (invokeUser == null) {
-            //如果用户信息为空，处理未授权情况并且返回响应
+            // 如果用户信息为空，处理未授权情况并且返回响应
+            log.error("未找到对应的用户信息，拒绝请求");
             return handleNoAuth(response);
         }
 
-
-        if (Long.parseLong(nonce) > 10000L) {
+        if (nonce == null || Long.parseLong(nonce) > 10000L) {
+            log.error("nonce 无效，拒绝请求");
             return handleNoAuth(response);
         }
         // 时间和当前时间不能超过 5 分钟
@@ -105,42 +115,39 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 判断当前时间与传入的时间戳是否相差五分钟或以上
         // Long.parseLong(timestamp)将传入的时间戳转换成长整型
         // 然后计算当前时间与传入时间戳之间的差值(以秒为单位),如果差值大于等于五分钟,则返回true,否则返回false
-        if ((currentTime - Long.parseLong(timestamp)) >= FIVE_MINUTES) {
+        if (timestamp == null || (currentTime - Long.parseLong(timestamp)) >= FIVE_MINUTES) {
             // 如果时间戳与当前时间相差五分钟或以上，调用handleNoAuth(response)方法进行处理
+            log.error("时间戳无效，拒绝请求");
             return handleNoAuth(response);
         }
 
-        // 实际情况中是从数据库中查出 secretKey
-        String secretKey = invokeUser.getSecretKey(); // 这里假设从数据库查出的 secretKey 是 "abcdefg"
+
+        String secretKey = invokeUser.getSecretKey();
         String serverSign = SignUtils.genSign(body, secretKey);
         if (serverSign == null || !serverSign.equals(signature)) {
-            //如果签名为空或者签名不一致，返回处理未授权的响应
+            // 如果签名为空或者签名不一致，返回处理未授权的响应
+            log.error("签名验证失败，拒绝请求");
             return handleNoAuth(response);
         }
 
         // 5. 请求的模拟接口是否存在?
-        //todo 从数据库中查询模拟接口是否存在，以及请求方法是否匹配（还可以校验请求参数）
-        //初始化一个InterfaceInfo对象，用于存储查询结果
+        // 初始化一个InterfaceInfo对象，用于存储查询结果
         InterfaceInfo interfaceInfo = null;
         try {
-            //尝试从内部接口信息服务获取指定路径和方法接口信息
+            // 尝试从内部接口信息服务获取指定路径和方法接口信息
             interfaceInfo = innerInterfaceInfoService.getInterfaceInfo(path, method);
         } catch (Exception e) {
-            log.error("getInvokeUser error" + e.getMessage());
-        }
-        if (interfaceInfo == null) {
-            //如果未获取到接口信息，返回处理未授权的响应
+            log.error("getInterfaceInfo error", e);
             return handleNoAuth(response);
         }
-        //todo 是否有调用次数
-//        Mono<Void> filter = chain.filter(exchange);
-        //调用成功后输入一个响应日志
-//        log.info("响应：" + response.getStatusCode());
-//        return filter;
-// 7. 响应日志
+        if (interfaceInfo == null) {
+            // 如果未获取到接口信息，返回处理未授权的响应
+            log.error("未找到对应的接口信息，拒绝请求");
+            return handleNoAuth(response);
+        }
+
+        // 7. 响应日志
         return handleResponse(exchange, chain, interfaceInfo.getId(), invokeUser.getId());
-
-
     }
 
     @Override

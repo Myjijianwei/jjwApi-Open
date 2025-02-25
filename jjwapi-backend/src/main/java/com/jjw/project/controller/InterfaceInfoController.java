@@ -3,6 +3,7 @@ package com.jjw.project.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.jjw.jjwapicommon.model.entity.InterfaceInfo;
 import com.jjw.jjwapicommon.model.entity.User;
 import com.jjwapi.jjwapiclientsdk.client.JjwApiClient;
@@ -250,7 +251,7 @@ public class InterfaceInfoController {
         //判断该接口是否可以调用
         //模拟
         com.jjwapi.jjwapiclientsdk.model.User user = new com.jjwapi.jjwapiclientsdk.model.User();
-        user.setUsername("zhangyu");
+        user.setUserName("zhangyu");
         String username = jjwApiClient.getUserNameByPost(user);
         if (StringUtils.isBlank(username)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口验证失败");
@@ -285,7 +286,7 @@ public class InterfaceInfoController {
             //判断该接口是否可以调用
             //模拟
             com.jjwapi.jjwapiclientsdk.model.User user = new com.jjwapi.jjwapiclientsdk.model.User();
-            user.setUsername("章鱼小丸子儿~");
+            user.setUserName("章鱼小丸子儿~");
             String username = jjwApiClient.getUserNameByPost(user);
             if (StringUtils.isBlank(username)) {
                 throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -297,45 +298,6 @@ public class InterfaceInfoController {
             return ResultUtils.success(result);
     }
 
-    /**
-     * 测试调用
-     *
-     * @param interfaceInfoInvokeRequest
-     * @param request
-     * @return
-     */
-    @PostMapping("/invoke")
-    @AuthCheck(mustRole = "admin")
-    public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
-                                                    HttpServletRequest request) {
-        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        long id = interfaceInfoInvokeRequest.getId();
-        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
-        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
-        if (oldInterfaceInfo == null) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
-        }
-        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
-        }
-        // 获取当前登录用户的ak和sk，这样相当于用户自己的这个身份去调用，
-        // 也不会担心它刷接口，因为知道是谁刷了这个接口，会比较安全
-        User loginUser = userService.getLoginUser(request);
-        String accessKey = loginUser.getAccessKey();
-        String secretKey = loginUser.getSecretKey();
-        JjwApiClient jjwApiClient = new JjwApiClient(accessKey, secretKey);
-        // 我们只需要进行测试调用，所以我们需要解析传递过来的参数。
-        Gson gson = new Gson();
-        com.jjwapi.jjwapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.jjwapi.jjwapiclientsdk.model.User.class);
-        // 调用JjwApiClient的getUsernameByPost方法，传入用户对象，获取用户名
-        String usernameByPost = jjwApiClient.getUserNameByPost(user);
-        // 返回成功响应，并包含调用结果
-        return ResultUtils.success(usernameByPost);
-    }
-
-
 //    /**
 //     * 测试调用
 //     *
@@ -346,6 +308,173 @@ public class InterfaceInfoController {
 //    @PostMapping("/invoke")
 //    @AuthCheck(mustRole = "admin")
 //    public BaseResponse<Object> invokeInterfaceInfo1(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
+//                                                    HttpServletRequest request) {
+//        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
+//            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+//        }
+//        long id = interfaceInfoInvokeRequest.getId();
+//        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
+//        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
+//        if (oldInterfaceInfo == null) {
+//            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+//        }
+//        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
+//            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
+//        }
+//        // 获取当前登录用户的ak和sk，这样相当于用户自己的这个身份去调用，
+//        // 也不会担心它刷接口，因为知道是谁刷了这个接口，会比较安全
+//        User loginUser = userService.getLoginUser(request);
+//        String accessKey = loginUser.getAccessKey();
+//        String secretKey = loginUser.getSecretKey();
+//        JjwApiClient jjwApiClient = new JjwApiClient(accessKey, secretKey);
+//        // 我们只需要进行测试调用，所以我们需要解析传递过来的参数。
+//        Gson gson = new Gson();
+//        com.jjwapi.jjwapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.jjwapi.jjwapiclientsdk.model.User.class);
+//        // 调用JjwApiClient的getUsernameByPost方法，传入用户对象，获取用户名
+//        String usernameByPost = jjwApiClient.getUserNameByPost(user);
+//        // 返回成功响应，并包含调用结果
+//        return ResultUtils.success(usernameByPost);
+//    }
+
+    /**
+     * 测试调用
+     *
+     * @param interfaceInfoInvokeRequest 接口调用请求参数
+     * @param request HTTP 请求对象
+     * @return 接口调用结果
+     */
+    @PostMapping("/invoke")
+    @AuthCheck(mustRole = "admin")
+    public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
+                                                    HttpServletRequest request) {
+        // 更严格的参数校验
+        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口ID或请求参数不能为空");
+        }
+
+        long id = interfaceInfoInvokeRequest.getId();
+        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
+
+        // 根据id获取接口信息
+        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
+        if (oldInterfaceInfo == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "未找到对应的接口信息");
+        }
+
+        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
+        }
+
+        // 获取当前登录用户的ak和sk
+        User loginUser = userService.getLoginUser(request);
+        if (loginUser == null || loginUser.getAccessKey() == null || loginUser.getSecretKey() == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户信息或密钥信息不完整");
+        }
+        String accessKey = loginUser.getAccessKey();
+        String secretKey = loginUser.getSecretKey();
+        System.out.println(accessKey+" "+secretKey);
+        JjwApiClient jjwApiClient = new JjwApiClient(accessKey, secretKey);
+
+        // 解析传递过来的参数，增加异常处理
+        Gson gson = new Gson();
+
+        try {
+            // 获取接口信息中的方法名
+            String methodName = oldInterfaceInfo.getName();
+            System.out.println("调用的方法名: " + methodName);
+
+            // 判断方法是否需要参数
+            Method method = getMethod(jjwApiClient, methodName);
+            if (method == null) {
+                throw new NoSuchMethodException("未找到匹配的方法");
+            }
+
+            // 调用方法
+            Object result;
+            System.out.println(method.getParameterCount());
+            if (method.getParameterCount() == 0) {
+                // 如果方法没有参数，直接调用
+                result = invokeMethodWithoutParams(method, jjwApiClient);
+            } else {
+                // 如果方法有参数，解析参数并调用
+                Class<?> paramClass = method.getParameterTypes()[0]; // 获取方法的第一个参数类型
+                System.out.println("方法的参数类型: " + paramClass.getName());
+
+                // 检查 userRequestParams 是否为空
+                if (userRequestParams.trim().isEmpty()) {
+                    throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数不能为空");
+                }
+
+                // 打印待解析的 JSON 字符串
+                System.out.println("待解析的 JSON 字符串: " + userRequestParams);
+
+                // 修正 JSON 字符串格式（确保使用英文双引号）
+                userRequestParams = userRequestParams.replace("“", "\"").replace("”", "\"");
+                System.out.println("修正后的 JSON 字符串: " + userRequestParams);
+
+                // 解析 JSON 字符串
+                Object paramObject = gson.fromJson(userRequestParams, paramClass);
+
+                // 检查解析后的参数对象
+                if (paramObject == null) {
+                    throw new BusinessException(ErrorCode.PARAMS_ERROR, "解析后的参数对象为 null");
+                }
+                System.out.println("解析后的参数对象: " + paramObject);
+
+                // 调用方法
+                result = invokeMethodWithParams(method, jjwApiClient, paramObject);
+            }
+
+            return ResultUtils.success(result);
+        } catch (JsonSyntaxException e) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数JSON格式错误");
+        } catch (NoSuchMethodException e) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "未找到对应的方法");
+        } catch (Exception e) {
+            // 处理反射调用过程中的异常
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口调用失败，" + e.getMessage());
+        }
+    }
+
+    // 根据方法名获取Method对象
+    private Method getMethod(JjwApiClient jjwApiClient, String methodName) {
+        Method[] methods = jjwApiClient.getClass().getMethods();
+        for (Method m : methods) {
+            if (m.getName().equals(methodName)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    // 调用无参方法
+    private Object invokeMethodWithoutParams(Method method, JjwApiClient jjwApiClient) throws Exception {
+        if (method == null || jjwApiClient == null) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "方法或客户端实例为空");
+        }
+        method.setAccessible(true);
+        return method.invoke(jjwApiClient);
+    }
+
+    // 调用有参方法
+    private Object invokeMethodWithParams(Method method, JjwApiClient jjwApiClient, Object paramObject) throws Exception {
+        if (method == null || jjwApiClient == null || paramObject == null) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "方法、客户端实例或参数对象为空");
+        }
+        System.out.println("实际传递的参数对象: " + paramObject);
+        return method.invoke(jjwApiClient, paramObject);
+    }
+
+//    /**
+//     * 测试调用
+//     *
+//     * @param interfaceInfoInvokeRequest
+//     * @param request
+//     * @return
+//     */
+//    @PostMapping("/invoke")
+//    @AuthCheck(mustRole = "admin")
+//    public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
 //                                                    HttpServletRequest request) {
 //        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
 //            throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -373,7 +502,7 @@ public class InterfaceInfoController {
 //        // 解析传递过来的参数
 //        Gson gson = new Gson();
 //        com.jjwapi.jjwapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.jjwapi.jjwapiclientsdk.model.User.class);
-//
+//        System.out.println(user.getUsername());
 //        try {
 //            // 获取接口信息中的方法名
 //            String methodName = oldInterfaceInfo.getName();
