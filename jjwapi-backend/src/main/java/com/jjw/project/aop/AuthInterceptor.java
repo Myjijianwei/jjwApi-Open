@@ -1,71 +1,84 @@
 package com.jjw.project.aop;
 
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
+import com.jjw.jjwapicommon.model.entity.User;
 import com.jjw.project.annotation.AuthCheck;
 import com.jjw.project.common.ErrorCode;
 import com.jjw.project.exception.BusinessException;
-import com.jjw.jjwapicommon.model.entity.User;
-
 import com.jjw.project.service.UserService;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
-
-/**
- * 权限校验 AOP
- *
- * @author jjw
- */
 @Aspect
 @Component
 public class AuthInterceptor {
 
-    @Resource
-    private UserService userService;
+    private final UserService userService;
 
-    /**
-     * 执行拦截
-     *
-     * @param joinPoint
-     * @param authCheck
-     * @return
-     */
+    public AuthInterceptor(UserService userService) {
+        this.userService = userService;
+    }
+
     @Around("@annotation(authCheck)")
     public Object doInterceptor(ProceedingJoinPoint joinPoint, AuthCheck authCheck) throws Throwable {
-        List<String> anyRole = Arrays.stream(authCheck.anyRole()).filter(StringUtils::isNotBlank).collect(Collectors.toList());
-        String mustRole = authCheck.mustRole();
-        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-        HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-        // 当前登录用户
+        if (authCheck == null) {
+            throw new IllegalArgumentException("AuthCheck annotation is null");
+        }
+        // 获取请求对象
+        HttpServletRequest request = getRequest();
+        if (request == null) {
+            throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "请求上下文获取失败");
+        }
+
+        // 获取当前登录用户
         User user = userService.getLoginUser(request);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "未登录或用户信息获取失败");
+        }
+
+        // 获取用户角色
+        String userRole = user.getUserRole();
+
         // 拥有任意权限即通过
-        if (CollectionUtils.isNotEmpty(anyRole)) {
-            String userRole = user.getUserRole();
-            if (!anyRole.contains(userRole)) {
-                throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
-            }
-        }
+        List<String> anyRole = Arrays.stream(authCheck.anyRole())
+                .filter(StringUtils::isNotBlank)
+                .collect(Collectors.toList());
+
         // 必须有所有权限才通过
-        if (StringUtils.isNotBlank(mustRole)) {
-            String userRole = user.getUserRole();
-            if (!mustRole.equals(userRole)) {
-                throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+        String mustRole = authCheck.mustRole();
+
+        boolean hasAnyRole = CollectionUtils.isEmpty(anyRole) || anyRole.contains(userRole);
+        boolean hasMustRole = StringUtils.isBlank(mustRole) || mustRole.equals(userRole);
+
+        if (authCheck.requireBoth()) {
+            if (!hasAnyRole || !hasMustRole) {
+                throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "不具备所需的权限");
+            }
+        } else {
+            if (!hasAnyRole && !hasMustRole) {
+                throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "不具备所需的权限");
             }
         }
+
         // 通过权限校验，放行
         return joinPoint.proceed();
     }
-}
 
+    private HttpServletRequest getRequest() {
+        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
+        if (requestAttributes instanceof ServletRequestAttributes) {
+            return ((ServletRequestAttributes) requestAttributes).getRequest();
+        }
+        return null;
+    }
+}

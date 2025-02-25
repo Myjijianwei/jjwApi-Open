@@ -9,6 +9,8 @@ import com.jjw.project.exception.BusinessException;
 import com.jjw.project.mapper.UserInterfaceInfoMapper;
 import com.jjw.jjwapicommon.model.entity.UserInterfaceInfo;
 import com.jjw.project.service.UserInterfaceInfoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,18 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoMapper, UserInterfaceInfo>
         implements UserInterfaceInfoService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserInterfaceInfoServiceImpl.class);
+    // 初始调用次数常量
+    private static final int INITIAL_LEFT_NUM = 100;
+
+    private final UserInterfaceInfoMapper userInterfaceInfoMapper;
+
+    public UserInterfaceInfoServiceImpl(UserInterfaceInfoMapper userInterfaceInfoMapper) {
+        this.userInterfaceInfoMapper = userInterfaceInfoMapper;
+    }
+
+
     @Override
     public void validInterfaceInfo(UserInterfaceInfo userInterfaceInfo, boolean add) {
         if (userInterfaceInfo == null) {
@@ -36,8 +50,7 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
     }
 
     /**
-     * TODO 用户可能会瞬间调用大量接口，所以后续需要优化，加上事务和锁，
-     * TODO 如果是分布式环境，那么就要用分布式锁实现
+     * 调用次数管理
      * @param interfaceInfoId
      * @param userId
      * @return
@@ -49,23 +62,57 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
         if (interfaceInfoId <= 0 || userId <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+
         // 先查询记录并加悲观锁（行级锁）
-        UserInterfaceInfo userInterfaceInfo = this.getOne(new UpdateWrapper<UserInterfaceInfo>()
+        UserInterfaceInfo userInterfaceInfo = userInterfaceInfoMapper.selectOne(new UpdateWrapper<UserInterfaceInfo>()
                 .eq("interfaceInfoId", interfaceInfoId)
                 .eq("userId", userId)
                 .last("FOR UPDATE"));
+
         if (userInterfaceInfo == null) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "用户接口信息记录不存在");
+            // 如果记录不存在，插入一条新记录
+            userInterfaceInfo = createNewUserInterfaceInfo(interfaceInfoId, userId);
+            try {
+                userInterfaceInfoMapper.insert(userInterfaceInfo);
+                logger.info("成功插入新的用户接口信息记录，interfaceInfoId: {}, userId: {}", interfaceInfoId, userId);
+            } catch (Exception e) {
+                logger.error("插入用户接口信息记录失败，interfaceInfoId: {}, userId: {}", interfaceInfoId, userId, e);
+                throw new BusinessException(ErrorCode.SYSTEM_ERROR, "插入用户接口信息记录失败");
+            }
         }
+
         if (userInterfaceInfo.getLeftNum() <= 0) {
             throw new BusinessException(ErrorCode.OPERATION_ERROR, "调用次数已用完");
         }
+
         // 更新 leftNum 和 totalNum
         userInterfaceInfo.setLeftNum(userInterfaceInfo.getLeftNum() - 1);
         userInterfaceInfo.setTotalNum(userInterfaceInfo.getTotalNum() + 1);
+
         // 执行更新操作
-        return this.updateById(userInterfaceInfo);
+        try {
+            boolean result = userInterfaceInfoMapper.updateById(userInterfaceInfo) > 0;
+            if (result) {
+                logger.info("成功更新用户接口信息记录，interfaceInfoId: {}, userId: {}", interfaceInfoId, userId);
+            } else {
+                logger.warn("更新用户接口信息记录失败，interfaceInfoId: {}, userId: {}", interfaceInfoId, userId);
+            }
+            return result;
+        } catch (Exception e) {
+            logger.error("更新用户接口信息记录失败，interfaceInfoId: {}, userId: {}", interfaceInfoId, userId, e);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "更新用户接口信息记录失败");
+        }
     }
+
+    private UserInterfaceInfo createNewUserInterfaceInfo(long interfaceInfoId, long userId) {
+        UserInterfaceInfo userInterfaceInfo = new UserInterfaceInfo();
+        userInterfaceInfo.setInterfaceInfoId(interfaceInfoId);
+        userInterfaceInfo.setUserId(userId);
+        userInterfaceInfo.setLeftNum(INITIAL_LEFT_NUM);
+        userInterfaceInfo.setTotalNum(0);
+        return userInterfaceInfo;
+    }
+
 
 }
 

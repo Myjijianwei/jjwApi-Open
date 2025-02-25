@@ -23,6 +23,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -335,7 +336,56 @@ public class InterfaceInfoController {
     }
 
 
-
+//    /**
+//     * 测试调用
+//     *
+//     * @param interfaceInfoInvokeRequest
+//     * @param request
+//     * @return
+//     */
+//    @PostMapping("/invoke")
+//    @AuthCheck(mustRole = "admin")
+//    public BaseResponse<Object> invokeInterfaceInfo1(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
+//                                                    HttpServletRequest request) {
+//        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
+//            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+//        }
+//        long id = interfaceInfoInvokeRequest.getId();
+//        String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
+//
+//        // 根据id获取接口信息
+//        InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
+//        if (oldInterfaceInfo == null) {
+//            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+//        }
+//
+//        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
+//            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
+//        }
+//
+//        // 获取当前登录用户的ak和sk
+//        User loginUser = userService.getLoginUser(request);
+//        String accessKey = loginUser.getAccessKey();
+//        String secretKey = loginUser.getSecretKey();
+//
+//        JjwApiClient jjwApiClient = new JjwApiClient(accessKey, secretKey);
+//
+//        // 解析传递过来的参数
+//        Gson gson = new Gson();
+//        com.jjwapi.jjwapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.jjwapi.jjwapiclientsdk.model.User.class);
+//
+//        try {
+//            // 获取接口信息中的方法名
+//            String methodName = oldInterfaceInfo.getName();
+//            // 通过反射调用JjwApiClient的相应方法
+//            Method method = jjwApiClient.getClass().getMethod(methodName, com.jjwapi.jjwapiclientsdk.model.User.class);
+//            Object result = method.invoke(jjwApiClient, user);
+//            return ResultUtils.success(result);
+//        } catch (Exception e) {
+//            // 处理反射调用过程中的异常
+//            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口调用失败，方法反射调用出现异常");
+//        }
+//    }
 //
 //    /**
 //     * 分页搜索（从 ES 查询，封装类）
